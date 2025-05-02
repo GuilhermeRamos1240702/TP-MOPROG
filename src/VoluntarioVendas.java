@@ -1,2 +1,2 @@
-public class VoluntarioVendas {
+public class VoluntarioVendas extends Atores{
 }

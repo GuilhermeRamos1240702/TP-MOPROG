@@ -1,3 +1,3 @@
-public class VoluntarioStocks {
+public class VoluntarioStocks extends Atores {
 
 }

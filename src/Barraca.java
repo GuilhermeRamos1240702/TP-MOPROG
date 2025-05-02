@@ -1,6 +1,7 @@
 public class Barraca extends Federaçao {
 
     int voluntario;
+    int stock;
 
     private static final int numero_min_funcionarios = 2;
 
