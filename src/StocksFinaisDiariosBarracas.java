@@ -1,3 +1,3 @@
 public interface StocksFinaisDiariosBarracas {
-    int calcularStocksFinaisDiariosBarracas();
+    Barraca.Classificacao calcularStocksFinaisDiariosBarracas();
 }

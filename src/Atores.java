@@ -1,14 +1,16 @@
+import java.util.Objects;
+
 public class Atores extends Federaçao {
     String nome;
     int numero;
     String curso;
     int password;
 
-    public Atores(String nome, int numero, String curso, int password){
-        this.nome=nome;
-        this.numero=numero;
-        this.curso=curso;
-        this.password=password;
+    public Atores(String nome, int numero, String curso, int password) {
+        this.nome = nome;
+        this.numero = numero;
+        this.curso = curso;
+        this.password = password;
     }
 
     public int getNumero() {
@@ -47,5 +49,12 @@ public class Atores extends Federaçao {
     public String toString() {
         return super.toString() + nome + curso + numero + password;
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Atores atores = (Atores) o;
+        return numero == atores.numero && password == atores.password && Objects.equals(nome, atores.nome) && Objects.equals(curso, atores.curso);
+    }
+
+}

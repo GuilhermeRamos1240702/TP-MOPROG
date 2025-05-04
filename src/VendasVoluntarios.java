@@ -1,3 +1,3 @@
 public interface VendasVoluntarios {
-    double calcularVendasVoluntarios();
+    Barraca.Classificacao calcularVendasVoluntarios();
 }
