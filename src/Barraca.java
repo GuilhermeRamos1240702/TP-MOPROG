@@ -33,12 +33,20 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
         return voluntarios;
     }
 
+    public double getVendas() {
+        return vendas;
+    }
+
     public void setNomebarraca(String nomebarraca) {
         this.nomebarraca = nomebarraca;
     }
 
     public void setVoluntarios(List<Atores> voluntarios) {
         this.voluntarios = voluntarios;
+    }
+
+    public void setVendas(double vendas) {
+        this.vendas = vendas;
     }
 
     @Override
