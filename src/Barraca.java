@@ -1,55 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.*;
 
 public class Barraca extends Federaçao implements StocksFinaisDiariosBarracas, VendasVoluntarios {
 
-    int voluntario;
-    int stock;
-    double vendas;
+    private String nomebarraca;
+    private List<Atores> voluntarios;
 
     private static final int numero_min_funcionarios = 2;
 
     enum Classificacao{
         Bronze, Prata, Ouro
     }
-
-
-    public Barraca(int voluntario, int stock, double vendas){
-        this.voluntario=voluntario;
-        this.stock=stock;
-        this.vendas=vendas;
+    public void adicionarVoluntario(Atores v) {
+        if (v != null) {
+            voluntarios.add(v);
+        }
     }
 
-    public int getVoluntario() {
-        return voluntario;
+    public Barraca(String nomebarraca){
+        this.nomebarraca=nomebarraca;
+        this.voluntarios=new ArrayList<>();
     }
 
-    public void setVoluntario(int voluntario) {
-        this.voluntario = voluntario;
+    public String getNomebarraca() {
+        return nomebarraca;
     }
 
-    public double getVendas() {
-        return vendas;
+    public List<Atores> getVoluntarios() {
+        return voluntarios;
     }
 
-    public void setVendas(double vendas) {
-        this.vendas = vendas;
+    public void setNomebarraca(String nomebarraca) {
+        this.nomebarraca = nomebarraca;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setVoluntarios(List<Atores> voluntarios) {
+        this.voluntarios = voluntarios;
     }
 
     @Override
     public String toString() {
-        return "Barraca{" +
-                "voluntario=" + voluntario +
-                ", stock=" + stock +
-                ", vendas=" + vendas +
-                '}';
+        return "Barraca:" +nomebarraca+ ", Voluntarios" +voluntarios;
+
     }
 
     @Override

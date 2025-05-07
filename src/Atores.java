@@ -1,10 +1,10 @@
 import java.util.Objects;
 
-public class Atores extends Federaçao {
-    String nome;
-    int numero;
-    String curso;
-    int password;
+public abstract class Atores extends Federaçao {
+    private String nome;
+    private int numero;
+    private String curso;
+    private int password;
 
     public Atores(String nome, int numero, String curso, int password) {
         this.nome = nome;
