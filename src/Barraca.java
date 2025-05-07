@@ -2,23 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
 
-public class Barraca extends Federaçao implements StocksFinaisDiariosBarracas, VendasVoluntarios {
+public class Barraca extends Federaçao implements VendasVoluntarios {
 
     private String nomebarraca;
     private List<Atores> voluntarios;
+    private double vendas;
 
     private static final int numero_min_funcionarios = 2;
 
     enum Classificacao{
         Bronze, Prata, Ouro
     }
+
     public void adicionarVoluntario(Atores v) {
         if (v != null) {
             voluntarios.add(v);
         }
     }
 
-    public Barraca(String nomebarraca){
+    public Barraca(String nomebarraca, double vendas, List<Atores> voluntarios){
         this.nomebarraca=nomebarraca;
         this.voluntarios=new ArrayList<>();
     }
@@ -42,20 +44,6 @@ public class Barraca extends Federaçao implements StocksFinaisDiariosBarracas, 
     @Override
     public String toString() {
         return "Barraca:" +nomebarraca+ ", Voluntarios" +voluntarios;
-
-    }
-
-    @Override
-    public Classificacao calcularStocksFinaisDiariosBarracas() {
-        if(stock>100) {
-            return Classificacao.Bronze;
-        }
-        if(stock>=50 && stock<=100){
-            return Classificacao.Prata;
-        }
-        else {
-            return Classificacao.Ouro;
-        }
 
     }
 
