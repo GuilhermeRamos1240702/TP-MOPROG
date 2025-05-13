@@ -1,8 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Federaçao {
     private String nomefederacao;
+    private List<Barraca> barracas;
 
-    public void Federacao(String nomefederacao){
+    public void adicionarBarraca(Barraca b) {
+        if (b != null) {
+            barracas.add(b);
+        }
+    }
+
+    public void Federacao(String nomefederacao, List<Barraca> barracas){
         this.nomefederacao=nomefederacao;
+        this.barracas=new ArrayList<>();
     }
 
     public String getNomefederacao() {
@@ -11,5 +22,13 @@ public class Federaçao {
 
     public void setNomefederacao(String nomefederacao) {
         this.nomefederacao = nomefederacao;
+    }
+
+    public List<Barraca> getBarracas() {
+        return barracas;
+    }
+
+    public void setBarracas(List<Barraca> barracas) {
+        this.barracas = barracas;
     }
 }
