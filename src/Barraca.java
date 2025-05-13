@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
 
 public class Barraca extends Federaçao implements VendasVoluntarios {
 
     private String nomebarraca;
-    private List<Atores> voluntarios;
+    private List<Ator> voluntarios;
+    private List<StockProdutoDia> stockProdutoDias;
     private double vendas;
 
     private static final int numero_min_funcionarios = 2;
@@ -14,23 +14,38 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
         Bronze, Prata, Ouro
     }
 
-    public void adicionarVoluntario(Atores v) {
+    public Barraca() {
+    }
+
+    public void adicionarStocks(StockProdutoDia s){
+        if (s != null) {
+            stockProdutoDias.add(s);
+        }
+    }
+
+
+    public void adicionarVoluntario(Ator v) {
         if (v != null) {
             voluntarios.add(v);
         }
     }
 
-    public Barraca(String nomebarraca, double vendas, List<Atores> voluntarios){
+    public Barraca(String nomebarraca, double vendas, List<Ator> voluntarios, List<StockProdutoDia> stockProdutoDias){
         this.nomebarraca=nomebarraca;
         this.voluntarios=new ArrayList<>();
+        this.stockProdutoDias = new ArrayList<>();
     }
 
     public String getNomebarraca() {
         return nomebarraca;
     }
 
-    public List<Atores> getVoluntarios() {
+    public List<Ator> getVoluntarios() {
         return voluntarios;
+    }
+
+    public List<StockProdutoDia> getStocks() {
+        return stockProdutoDias;
     }
 
     public double getVendas() {
@@ -41,8 +56,12 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
         this.nomebarraca = nomebarraca;
     }
 
-    public void setVoluntarios(List<Atores> voluntarios) {
+    public void setVoluntarios(List<Ator> voluntarios) {
         this.voluntarios = voluntarios;
+    }
+
+    public void setStocks(List<StockProdutoDia> stockProdutoDias) {
+        this.stockProdutoDias = stockProdutoDias;
     }
 
     public void setVendas(double vendas) {
