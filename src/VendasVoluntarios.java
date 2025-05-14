@@ -1,3 +1,3 @@
 public interface VendasVoluntarios {
-    Barraca.Classificacao calcularVendasVoluntarios();
+    VendaProdutoDia.Classificacao calcularVendasVoluntarios();
 }

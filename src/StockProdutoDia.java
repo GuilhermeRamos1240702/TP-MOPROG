@@ -38,6 +38,7 @@ public class StockProdutoDia extends Barraca implements StocksFinaisDiariosBarra
     }
 
     public Classificacao calcularStocksFinaisDiariosBarracas() {
+        int stockfinal = quantidadetotal - quantidadevendida;
         if (quantidadetotal > 100) {
             return Classificacao.Bronze;
         }

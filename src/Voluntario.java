@@ -1,12 +1,12 @@
 import java.util.Objects;
 
-public abstract class Ator extends Federaçao {
+public abstract class Voluntario extends Federacao {
     private String nome;
     private int numero;
     private String curso;
     private int password;
 
-    public Ator(String nome, int numero, String curso, int password) {
+    public Voluntario(String nome, int numero, String curso, int password) {
         this.nome = nome;
         this.numero = numero;
         this.curso = curso;
@@ -53,8 +53,9 @@ public abstract class Ator extends Federaçao {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Ator ator = (Ator) o;
-        return numero == ator.numero && password == ator.password && Objects.equals(nome, ator.nome) && Objects.equals(curso, ator.curso);
+        Voluntario voluntario = (Voluntario) o;
+        return numero == voluntario.numero && password == voluntario.password && Objects.equals(nome, voluntario.nome) && Objects.equals(curso, voluntario.curso);
     }
+
 
 }

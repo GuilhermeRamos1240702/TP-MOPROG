@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Federaçao {
+public class Federacao {
     private String nomefederacao;
     private List<Barraca> barracas;
 

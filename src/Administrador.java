@@ -1,4 +1,4 @@
-public class Administrador extends Ator {
+public class Administrador extends Voluntario {
 
     public Administrador(String nome, int numero, String curso, int password) {
         super(nome, numero, curso, password);

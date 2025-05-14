@@ -1,18 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Barraca extends Federaçao implements VendasVoluntarios {
+public class Barraca extends Federacao {
 
-    private String nomebarraca;
-    private List<Ator> voluntarios;
+    private String instituicao;
+    private List<Voluntario> voluntarios;
     private List<StockProdutoDia> stockProdutoDias;
-    private double vendas;
+    private List<VendaProdutoDia> vendaProdutoDias;
 
     private static final int numero_min_funcionarios = 2;
 
-    enum Classificacao{
-        Bronze, Prata, Ouro
-    }
 
     public Barraca() {
     }
@@ -24,23 +21,33 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
     }
 
 
-    public void adicionarVoluntario(Ator v) {
-        if (v != null) {
-            voluntarios.add(v);
+    public boolean adicionarVoluntario(Voluntario a) {
+
+        //Verificar se o funcionário pertence á mesma instituiçao da barraca
+        if (!a.getCurso().equalsIgnoreCase(this.instituicao)) {
+            return false;
+            System.out.println("O volubntário nao pode ser incluido nesta barraca pois pertence a uma instituicao diferente");
         }
     }
 
-    public Barraca(String nomebarraca, double vendas, List<Ator> voluntarios, List<StockProdutoDia> stockProdutoDias){
-        this.nomebarraca=nomebarraca;
+    public void adicionarVendas(VendaProdutoDia v ) {
+        if (v != null) {
+            vendaProdutoDias.add(v);
+        }
+    }
+
+    public Barraca(String instituicao, List<Voluntario> voluntarios, List<StockProdutoDia> stockProdutoDias, List<VendaProdutoDia> vendaProdutoDias){
+        this.instituicao=instituicao;
         this.voluntarios=new ArrayList<>();
         this.stockProdutoDias = new ArrayList<>();
+        this.vendaProdutoDias= new ArrayList<>();
     }
 
-    public String getNomebarraca() {
-        return nomebarraca;
+    public String getInstituicao() {
+        return instituicao;
     }
 
-    public List<Ator> getVoluntarios() {
+    public List<Voluntario> getVoluntarios() {
         return voluntarios;
     }
 
@@ -48,15 +55,15 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
         return stockProdutoDias;
     }
 
-    public double getVendas() {
-        return vendas;
+    public List<VendaProdutoDia> getVendaProdutoDias() {
+        return vendaProdutoDias;
     }
 
-    public void setNomebarraca(String nomebarraca) {
-        this.nomebarraca = nomebarraca;
+    public void setInstituicao(String instituicao) {
+        this.instituicao = instituicao;
     }
 
-    public void setVoluntarios(List<Ator> voluntarios) {
+    public void setVoluntarios(List<Voluntario> voluntarios) {
         this.voluntarios = voluntarios;
     }
 
@@ -64,26 +71,14 @@ public class Barraca extends Federaçao implements VendasVoluntarios {
         this.stockProdutoDias = stockProdutoDias;
     }
 
-    public void setVendas(double vendas) {
-        this.vendas = vendas;
+    public void setVendaProdutoDias(List<VendaProdutoDia> vendaProdutoDias) {
+        this.vendaProdutoDias = vendaProdutoDias;
     }
 
     @Override
     public String toString() {
-        return "Barraca:" +nomebarraca+ ", Voluntarios" +voluntarios;
+        return "Barraca:" +instituicao+ ", Voluntarios" +voluntarios;
 
     }
 
-    @Override
-    public Classificacao calcularVendasVoluntarios() {
-        if(vendas<500){
-            return Classificacao.Bronze;
-        }
-        if(vendas>=500 && vendas<=100){
-            return Classificacao.Prata;
-        }
-        else {
-            return Classificacao.Ouro;
-        }
-    }
 }
